@@ -1,0 +1,2 @@
+include ':AlexLab3'
+rootProject.name = "AlexLab3"

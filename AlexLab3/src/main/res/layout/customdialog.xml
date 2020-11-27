@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Author: Alex La
+Student Id: n01313354
+Section: RNA
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_gravity="center"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/appicon"
+        android:contentDescription="@string/app_name"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/are_you_sure_you_want_to_exit"
+        android:layout_gravity="center"
+        android:textSize="18sp"
+        android:layout_margin="5dp" />
+
+    <FrameLayout
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:paddingTop="20dp">
+
+        <Button
+            android:id="@+id/alexNoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            android:layout_marginLeft="10dp"
+            android:text="@string/no"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/alexYesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_marginRight="10dp"
+            android:text="@string/yes"
+            android:textStyle="bold"/>
+    </FrameLayout>
+
+</LinearLayout>
