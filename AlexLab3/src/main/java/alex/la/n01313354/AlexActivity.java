@@ -6,22 +6,18 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 //Author: Alex La
@@ -38,7 +34,7 @@ public class AlexActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.alex_activity);
 
     }
 
@@ -116,7 +112,7 @@ public class AlexActivity extends AppCompatActivity {
     {
         myDialog = new Dialog(AlexActivity.this);
         myDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        myDialog.setContentView(R.layout.customdialog);
+        myDialog.setContentView(R.layout.alexcustomdialog);
         myDialog.setTitle("My Customer Dialog");
         alexNoButton = (Button)myDialog.findViewById(R.id.alexNoButton);
         alexYesButton = (Button)myDialog.findViewById(R.id.alexYesButton);
