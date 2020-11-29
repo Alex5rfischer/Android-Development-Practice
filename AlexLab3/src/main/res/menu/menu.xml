@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+
+        android:id="@+id/alexHelp"
+        android:title="Help"
+        app:showAsAction="never"
+        android:orderInCategory="3"></item>
+    <item
+
+        android:id="@+id/alexLocation"
+        android:title="Location"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="2"></item>
+    <item
+
+        android:id="@+id/alexsms"
+        android:title="SMS"
+        app:showAsAction="always"
+        android:icon="@drawable/sms"
+        android:orderInCategory="1"></item>
+</menu>
