@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C4E2E6"
+    tools:context=".LaSettings">
+
+
+    <TextView
+        android:id="@+id/backgroundColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Background Color"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:layout_margin="10dp"/>
+    <RadioGroup
+        android:id="@+id/colorGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="white" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="purple" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="grey" />
+
+    </RadioGroup>
+    <TextView
+        android:id="@+id/format"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select time format"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:layout_margin="10dp"/>
+    <RadioGroup
+        android:id="@+id/formatGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 hours" />
+
+        <RadioButton
+            android:id="@+id/radioButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 hours" />
+    </RadioGroup>
+    <TextView
+        android:id="@+id/fontID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select font size"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:layout_margin="10dp"/>
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/fontSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="True / False"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_margin="5dp"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="#FF000000"
+        android:background="#250101"
+        android:layout_margin="30dp"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

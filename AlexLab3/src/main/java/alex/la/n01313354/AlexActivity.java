@@ -1,9 +1,17 @@
 package alex.la.n01313354;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.app.Dialog;
@@ -13,12 +21,16 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.Toolbar;
+
+import com.google.android.material.navigation.NavigationView;
 
 //Author: Alex La
 //Student Id: n01313354
@@ -28,6 +40,8 @@ public class AlexActivity extends AppCompatActivity {
     Dialog myDialog;
     Button alexNoButton,alexYesButton;
 
+
+    private DrawerLayout myDrawerLayout;
     private int SMS_PERMISSION_CODE = 1;
 
 
@@ -35,6 +49,52 @@ public class AlexActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alex_activity);
+
+        LaHome homeFragment =  new LaHome();
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.alexcontent_frame, homeFragment).commit();
+
+
+        ActionBar mActionBar = getSupportActionBar();
+        mActionBar.setDisplayHomeAsUpEnabled(true);
+        mActionBar.setHomeAsUpIndicator(R.drawable.hamburger_icon);
+        myDrawerLayout = findViewById(R.id.drawer_layout);
+
+        NavigationView mNavigationView = findViewById(R.id.nav_view);
+        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Fragment newFragment;
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+                menuItem.setChecked(true);
+                myDrawerLayout.closeDrawers();
+
+                int id = menuItem.getItemId();
+//                if(id == R.id.alexFirstname){
+//                    newFragment =  new MahadeoDown();
+//                    transaction.replace(R.id.alexcontent_frame, newFragment);
+//                    transaction.addToBackStack(null);
+//                    transaction.commit();
+//
+//                }else if(id == R.id.nav_lastName){
+//                    newFragment =  new MahadeoSrv();
+//                    transaction.replace(R.id.alexcontent_frame, newFragment);
+//                    transaction.addToBackStack(null);
+//                    transaction.commit();
+//                }else
+
+                    if(id == R.id.alexSettings){
+                    newFragment =  new LaSettings();
+                    transaction.replace(R.id.alexcontent_frame, newFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
+                Toast.makeText(getApplicationContext(), menuItem.getTitle(),
+                        Toast.LENGTH_LONG).show();
+                return false;
+            }
+        });
 
     }
 
@@ -97,11 +157,12 @@ public class AlexActivity extends AppCompatActivity {
                 }else{
                     requestSMSPermission();
                 }
-            default:
-                return super.onOptionsItemSelected(item);
+            case android.R.id.home:
+                myDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
         }
 
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

@@ -7,4 +7,8 @@
     <string name="permission_required">Permission required to sent SMS</string>
     <string name="ok">Ok</string>
     <string name="cancel">Cancel</string>
+    <string name="dateformat">HH:mm:ss \nyyyy-MM-dd</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

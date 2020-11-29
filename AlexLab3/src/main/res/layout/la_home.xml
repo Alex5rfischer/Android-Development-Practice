@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/ymHome_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFE2E2"
+    tools:context=".LaHome">
+
+
+    <TextView
+        android:id="@+id/tvYogeshwar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#250202"
+        android:text="Alex La"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/tvN01236915"
+        android:layout_width="wrap_content"
+        android:textColor="#250202"
+        android:layout_height="wrap_content"
+        android:text="n01313354"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
+    <TextClock
+        android:id="@+id/textClock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:format12Hour="@string/dateformat"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#250202"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="8dp"/>
+    <TextView
+        android:id="@+id/tvCourseList"
+        android:layout_width="wrap_content"
+        android:textColor="#250202"
+        android:layout_height="wrap_content"
+        android:text="List of courses"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"/>
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/courseSpinner"
+        android:textColor="#250202"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
