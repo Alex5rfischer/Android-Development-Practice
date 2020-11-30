@@ -3,6 +3,8 @@ package alex.la.n01313354;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -16,7 +18,11 @@ public class LaDatePicker extends AppCompatActivity {
     private int hour, minute;
     private int yr, month, day;
     private TextView textView;
-    //
+
+    //DatePicker View
+    DatePicker picker;
+    Button btnGet;
+    TextView tvw;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +31,7 @@ public class LaDatePicker extends AppCompatActivity {
         //instantiate the text view
         textView = (TextView)findViewById(R.id.textView);
         //instantiate the date and time picker
-        timePicker = (TimePicker) findViewById(R.id.timePicker);
+        //timePicker = (TimePicker) findViewById(R.id.timePicker);
         timePicker.setIs24HourView(true);
         //
         datePicker = (DatePicker) findViewById(R.id.datePicker);
@@ -57,6 +63,17 @@ public class LaDatePicker extends AppCompatActivity {
                     hourOfDay=hourOfDay-12;
                 }
                 textView.setText(hourOfDay + ":" + minute + meridiem);
+            }
+        });
+
+        tvw=(TextView)findViewById(R.id.textView1);
+        picker=(DatePicker)findViewById(R.id.datePicker1);
+        btnGet=(Button)findViewById(R.id.button1);
+
+        btnGet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvw.setText("Selected Date: "+ picker.getDayOfMonth()+"/"+ (picker.getMonth() + 1)+"/"+picker.getYear());
             }
         });
 

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -18,6 +19,10 @@ import android.widget.Toast;
 public class LaHome extends Fragment {
 
     Button date;
+    //DatePicker View
+    DatePicker picker;
+    Button btnGet;
+    TextView tvw;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +33,18 @@ public class LaHome extends Fragment {
         // DatePicker
         View view = (View) inflater.inflate(R.layout.la_home, container, false);
         date = (Button) view.findViewById(R.id.btnDatePicker);
+
+        tvw=(TextView)view.findViewById(R.id.textView1);
+        picker=(DatePicker)view.findViewById(R.id.datePicker1);
+        btnGet=(Button)view.findViewById(R.id.button1);
+
+        btnGet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvw.setText("Selected Date: "+ picker.getDayOfMonth()+"/"+ (picker.getMonth() + 1)+"/"+picker.getYear());
+            }
+        });
+
 
         date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,9 +61,9 @@ public class LaHome extends Fragment {
 
             public void onClick(View v) {
                 //get the spinner view as text view
-                TextView text_sel = (TextView)spin.getSelectedView();
+                TextView courseSelected = (TextView)spin.getSelectedView();
                 //get the text from the spinner view
-                Toast.makeText(getActivity(), "Item Selected = "+text_sel.getText(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Item Selected = "+courseSelected.getText(), Toast.LENGTH_SHORT).show();
             }
 
         });
