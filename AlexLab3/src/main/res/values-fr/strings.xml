@@ -11,4 +11,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="firstname">Alex</string>
+    <string name="lastname">La</string>
+    <string name="enter_zip_code">Enter Zip Code</string>
 </resources>

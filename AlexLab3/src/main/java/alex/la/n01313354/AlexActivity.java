@@ -2,7 +2,6 @@ package alex.la.n01313354;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -21,14 +20,12 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -71,12 +68,13 @@ public class AlexActivity extends AppCompatActivity {
                 myDrawerLayout.closeDrawers();
 
                 int id = menuItem.getItemId();
-//                if(id == R.id.alexFirstname){
-//                    newFragment =  new MahadeoDown();
-//                    transaction.replace(R.id.alexcontent_frame, newFragment);
-//                    transaction.addToBackStack(null);
-//                    transaction.commit();
-//
+                if(id == R.id.alexFirstname)
+                {
+                    newFragment = new LaSrv();
+                    transaction.replace(R.id.alexcontent_frame, newFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
 //                }else if(id == R.id.nav_lastName){
 //                    newFragment =  new MahadeoSrv();
 //                    transaction.replace(R.id.alexcontent_frame, newFragment);
@@ -84,7 +82,7 @@ public class AlexActivity extends AppCompatActivity {
 //                    transaction.commit();
 //                }else
 
-                    if(id == R.id.alexSettings){
+                    if(id == R.id.alexSettings) {
                     newFragment =  new LaSettings();
                     transaction.replace(R.id.alexcontent_frame, newFragment);
                     transaction.addToBackStack(null);
