@@ -6,52 +6,88 @@
     android:id="@+id/ymHome_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EFE2E2"
+    android:background="@color/la_home_backgroundColor"
     tools:context=".LaHome">
 
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvAlexLa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#250202"
+            android:text="Alex La"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="80sp"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:id="@+id/tvN01313354"
+            android:layout_width="wrap_content"
+            android:textColor="#250202"
+            android:layout_height="wrap_content"
+            android:text="@string/student_number"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="230sp"
+            android:layout_marginTop="10dp"/>
 
-    <TextView
-        android:id="@+id/tvYogeshwar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#250202"
-        android:text="Alex La"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_margin="10dp"/>
-    <TextView
-        android:id="@+id/tvN01236915"
-        android:layout_width="wrap_content"
-        android:textColor="#250202"
-        android:layout_height="wrap_content"
-        android:text="n01313354"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_margin="10dp"/>
+    </FrameLayout>
+
     <TextClock
         android:id="@+id/textClock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:format12Hour="@string/dateformat"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:textColor="#250202"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:layout_marginLeft="8dp"/>
+        android:layout_marginLeft="80sp"/>
     <TextView
         android:id="@+id/tvCourseList"
         android:layout_width="wrap_content"
         android:textColor="#250202"
         android:layout_height="wrap_content"
-        android:text="List of courses"
+        android:text="@string/list_of_courses"
+        android:layout_gravity="center"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:layout_margin="10dp"/>
-    <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/courseSpinner"
-        android:textColor="#250202"
-        android:layout_width="match_parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
+        android:layout_marginLeft="7dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:text="Select a course">
+
+    </TextView>
+
+    <Spinner
+        android:id="@+id/coursespinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/courses"
+        android:spinnerMode="dropdown" />
+
+    <ImageButton
+        android:id="@+id/aleximagebutton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/arrowbutton"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="left"/>
+    <Button
+        android:id="@+id/btnDatePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:onClick="displayDatePicker"
+        android:text="DatePicker example"
+        android:layout_gravity="center"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
