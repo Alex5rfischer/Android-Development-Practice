@@ -1,6 +1,7 @@
 package alex.la.n01313354;
 
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -26,7 +27,7 @@ public class LaSet extends Fragment {
     private Switch mySwitch;
     private RadioButton radio_brown;
     private RadioButton radio_purple;
-    private RadioButton radio_grey;
+    private RadioButton radio_gray;
     private RadioButton radio_DEFAULT;
     private LinearLayout settings;
 
@@ -53,7 +54,7 @@ public class LaSet extends Fragment {
         radioGroup = (RadioGroup)view.findViewById(R.id.colorGroup);
         radio_brown = (RadioButton) view.findViewById(R.id.alexBrownColorRadio);
         radio_purple = (RadioButton) view.findViewById(R.id.alexPurpleColorRadio);
-        radio_grey = (RadioButton) view.findViewById(R.id.alexGreyColorRadio);
+        radio_gray = (RadioButton) view.findViewById(R.id.alexGreyColorRadio);
         radio_DEFAULT = (RadioButton) view.findViewById(R.id.alexDefaultColorRadio);
 
         radio_brown.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +73,7 @@ public class LaSet extends Fragment {
             }
         });
 
-        radio_grey.setOnClickListener(new View.OnClickListener() {
+        radio_gray.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 settings.setBackgroundColor(Color.GRAY);
@@ -87,8 +88,6 @@ public class LaSet extends Fragment {
 
             }
         });
-
-
 
         saveBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -107,9 +106,11 @@ public class LaSet extends Fragment {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         editor.putBoolean(SWITCH1, mySwitch.isChecked());
         editor.apply();
         Toast.makeText(getActivity(), "Data saved", Toast.LENGTH_SHORT).show();
+
     }
 
     public void loadData() {
