@@ -20,8 +20,6 @@ public class LaHome extends Fragment {
 
     Button date;
     //DatePicker View
-    DatePicker picker;
-    Button btnGet;
     TextView tvw;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,17 +32,7 @@ public class LaHome extends Fragment {
         View view = (View) inflater.inflate(R.layout.la_home, container, false);
         date = (Button) view.findViewById(R.id.btnDatePicker);
 
-        tvw=(TextView)view.findViewById(R.id.textView1);
-        picker=(DatePicker)view.findViewById(R.id.datePicker1);
-        btnGet=(Button)view.findViewById(R.id.button1);
-
-        btnGet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tvw.setText("Selected Date: "+ picker.getDayOfMonth()+"/"+ (picker.getMonth() + 1)+"/"+picker.getYear());
-            }
-        });
-
+        tvw=(TextView)view.findViewById(R.id.alexoutput);
 
         date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,8 +50,9 @@ public class LaHome extends Fragment {
             public void onClick(View v) {
                 //get the spinner view as text view
                 TextView courseSelected = (TextView)spin.getSelectedView();
+                tvw.setText("Selected:"+ courseSelected.getText());
                 //get the text from the spinner view
-                Toast.makeText(getActivity(), "Item Selected = "+courseSelected.getText(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Item Selected:"+courseSelected.getText(), Toast.LENGTH_SHORT).show();
             }
 
         });

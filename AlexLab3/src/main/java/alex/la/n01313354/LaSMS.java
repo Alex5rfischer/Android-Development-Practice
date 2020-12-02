@@ -2,6 +2,7 @@ package alex.la.n01313354;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
@@ -15,11 +16,16 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 
 import android.telephony.SmsManager;
+import android.text.style.AbsoluteSizeSpan;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class LaSMS extends AppCompatActivity {
     Button btnSendSMS;
@@ -84,6 +90,7 @@ public class LaSMS extends AppCompatActivity {
     }
 
     protected void sendSMS(String phoneNo, String message) {
+
         // TODO Auto-generated method stub
         String SENT = "SMS_SENT";
         String DELIVERED = "SMS_DELIVERED";
@@ -101,8 +108,9 @@ public class LaSMS extends AppCompatActivity {
                 switch (getResultCode())
                 {
                     case Activity.RESULT_OK:
-                        Toast.makeText(getBaseContext(), "SMS sent",
-                                Toast.LENGTH_LONG).show();
+                        ViewGroup mRootView = ((ViewGroup)findViewById(R.id.sms));
+                        Snackbar snackbar = Snackbar.make(mRootView, "Succsessful", Snackbar.LENGTH_LONG);
+                        snackbar.show();
                         break;
                     case SmsManager.RESULT_ERROR_GENERIC_FAILURE:
                         Toast.makeText(getBaseContext(), "Generic failure",

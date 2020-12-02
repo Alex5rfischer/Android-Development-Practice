@@ -29,7 +29,7 @@
 
     <string-array name="courses">
         <item>GNED</item>
-        <item>Algorithms and Data Structure</item>
+        <item>Algorithms and Data</item>
         <item>Software Project</item>
         <item>Hardware Production</item>
         <item>Network Programming</item>

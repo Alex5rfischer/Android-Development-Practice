@@ -2,6 +2,7 @@ package alex.la.n01313354;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,31 +13,29 @@ import android.widget.TimePicker;
 import java.util.Calendar;
 
 public class LaDatePicker extends AppCompatActivity {
-    private TimePicker timePicker;
     private DatePicker datePicker;
-    //
-    private int hour, minute;
+
     private int yr, month, day;
     private TextView textView;
 
     //DatePicker View
     DatePicker picker;
     Button btnGet;
-    TextView tvw;
+    public TextView tvw;
+    public String selectedDate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.la_date_picker);
-        //
+
         //instantiate the text view
-        textView = (TextView)findViewById(R.id.textView);
+        textView = (TextView)findViewById(R.id.alextopDate);
+        tvw=(TextView)findViewById(R.id.textView1);
         //instantiate the date and time picker
-        //timePicker = (TimePicker) findViewById(R.id.timePicker);
-        timePicker.setIs24HourView(true);
-        //
+
         datePicker = (DatePicker) findViewById(R.id.datePicker);
-        //
-        //---get the current date---
+        btnGet=(Button)findViewById(R.id.alexDataBtn);
+
         Calendar today = Calendar.getInstance();
         yr = today.get(Calendar.YEAR);
         month = today.get(Calendar.MONTH);
@@ -50,33 +49,13 @@ public class LaDatePicker extends AppCompatActivity {
                                               int monthOfYear, int dayOfMonth) {
                         // TODO Auto-generated method stub
                         textView.setText(" "+monthOfYear+ " / "+ dayOfMonth + " / "+year);
+                        btnGet.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                tvw.setText(textView.getText());
+                            }
+                        });
                     }
                 } );
-        //
-        timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
-            public void onTimeChanged(TimePicker view,
-                                      int hourOfDay, int minute) {
-
-                String meridiem = "AM";
-                if(hourOfDay>11){
-                    meridiem="PM";
-                    hourOfDay=hourOfDay-12;
-                }
-                textView.setText(hourOfDay + ":" + minute + meridiem);
-            }
-        });
-
-        tvw=(TextView)findViewById(R.id.textView1);
-        picker=(DatePicker)findViewById(R.id.datePicker1);
-        btnGet=(Button)findViewById(R.id.button1);
-
-        btnGet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tvw.setText("Selected Date: "+ picker.getDayOfMonth()+"/"+ (picker.getMonth() + 1)+"/"+picker.getYear());
-            }
-        });
-
-
     }
 }
