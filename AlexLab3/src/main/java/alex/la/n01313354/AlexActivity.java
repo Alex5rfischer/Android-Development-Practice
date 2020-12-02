@@ -9,13 +9,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,6 +38,8 @@ public class AlexActivity extends AppCompatActivity {
     Button buttonSMS;
 
     private static final int SMS_RECEIVE_PERMISSION_REQUEST = 1;
+    private IntentFilter filter = new IntentFilter(AlexBroadCast.NEW_LIFEFORM_ACTION);
+    private AlexBroadCast receiver = new AlexBroadCast();
 
     private DrawerLayout myDrawerLayout;
 
@@ -72,13 +77,6 @@ public class AlexActivity extends AppCompatActivity {
                     transaction.addToBackStack(null);
                     transaction.commit();
                 }
-//                }else if(id == R.id.nav_lastName){
-//                    newFragment =  new MahadeoSrv();
-//                    transaction.replace(R.id.alexcontent_frame, newFragment);
-//                    transaction.addToBackStack(null);
-//                    transaction.commit();
-//                }else
-
                 if(id == R.id.alexSettings) {
                     newFragment =  new AlexSet();
                     transaction.replace(R.id.alexcontent_frame, newFragment);
@@ -93,18 +91,66 @@ public class AlexActivity extends AppCompatActivity {
 
     }
 
+    String detectedLifeform = "facehugger"; //"Alf";
+    double mLatitude = 43.7289;
+    double mLongitude = 79.6074;
+    //
+    public void sendBroadcast()
+    {
+        Log.d("Here:", "Here");
+        listing6_15();
+    }
+
+    private void listing6_15() {
+        Intent intent = new Intent(AlexBroadCast.NEW_LIFEFORM_ACTION);
+        intent.putExtra(AlexBroadCast.EXTRA_LIFEFORM_NAME, detectedLifeform);
+        intent.putExtra(AlexBroadCast.EXTRA_LATITUDE, mLatitude);
+        intent.putExtra(AlexBroadCast.EXTRA_LONGITUDE, mLongitude);
+        //
+        sendBroadcast(intent);
+    }
+
+    private IntentFilter a = new IntentFilter(AlexBroadCast.NEW_LIFEFORM_ACTION);
+    private AlexBroadCast a1 = new AlexBroadCast();
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        registerReceiver(receiver, filter);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // Unregister the receiver
+        unregisterReceiver(receiver);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
+        lbm.registerReceiver(receiver, filter);
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(this);
+        lbm.unregisterReceiver(receiver);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the tools bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle tools bar item clicks here. The tool bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId())
         {
             case R.id.alexHelp:
@@ -113,14 +159,11 @@ public class AlexActivity extends AppCompatActivity {
                 break;
             case R.id.alexLocation:
                 Toast.makeText(this, "Location button selected", Toast.LENGTH_SHORT).show();
-                Intent location = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.where-am-i.net/"));
-                startActivity(location);
+//                Intent location = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.where-am-i.net/"));
+//                startActivity(location);
+                sendBroadcast();
                 break;
             case R.id.alexsms:
-                //Toast.makeText(this, "You selected the sms button", Toast.LENGTH_SHORT).show();
-//                if(ContextCompat.checkSelfPermission(AlexActivity.this,
-//                        Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED)
-//                {
                 ActivityCompat.requestPermissions(this, new String[]
                                 {Manifest.permission.RECEIVE_SMS,Manifest.permission.SEND_SMS,
                                         Manifest.permission.SEND_SMS,
@@ -128,11 +171,7 @@ public class AlexActivity extends AppCompatActivity {
                         SMS_RECEIVE_PERMISSION_REQUEST);
                     Intent intent1 = new Intent(AlexActivity.this, LaSMS.class);
                     startActivity(intent1);
-//                }else{
-//                    requestSMSPermission();
-//                }break;
                 break;
-
             case android.R.id.home:
                 myDrawerLayout.openDrawer(GravityCompat.START);
                 return true;

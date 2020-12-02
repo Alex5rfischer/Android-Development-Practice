@@ -21,4 +21,6 @@ Section: RNA
     <string name="enter_zip_code">Entrer le code postal</string>
     <string name="student_number">N01313354</string>
     <string name="list_of_courses">Liste des cours</string>
+    <string name="messages_channel_name">my_notification_channel</string>
+    <string name="notification_title">Person Detected</string>
 </resources>
