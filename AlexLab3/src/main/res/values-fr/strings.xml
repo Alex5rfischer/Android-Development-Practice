@@ -1,19 +1,24 @@
 <resources>
+<!--
+Author: Alex La
+Student Id: n01313354
+Section: RNA
+-->
     <string name="app_name">AlexLab3</string>
-    <string name="are_you_sure_you_want_to_exit">Are you sure you want to exit?</string>
-    <string name="no">No</string>
-    <string name="yes">Yes</string>
+    <string name="are_you_sure_you_want_to_exit">Êtes-vous sûr de vouloir quitter?</string>
+    <string name="no">Non</string>
+    <string name="yes">Oui</string>
     <string name="Information">Information</string>
-    <string name="permission_required">Permission required to sent SMS</string>
-    <string name="ok">Ok</string>
-    <string name="cancel">Cancel</string>
+    <string name="permission_required">Autorisation requise pour envoyer des SMS</string>
+    <string name="ok">Daccord</string>
+    <string name="cancel">Annuler</string>
     <string name="dateformat">HH:mm:ss \nyyyy-MM-dd</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="hello_blank_fragment">Bonjour fragment vierge</string>
+    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
+    <string name="navigation_drawer_close">Fermer le panneau de navigation</string>
     <string name="firstname">Alex</string>
     <string name="lastname">La</string>
-    <string name="enter_zip_code">Enter Zip Code</string>
+    <string name="enter_zip_code">Entrer le code postal</string>
     <string name="student_number">N01313354</string>
-    <string name="list_of_courses">List of courses</string>
+    <string name="list_of_courses">Liste des cours</string>
 </resources>

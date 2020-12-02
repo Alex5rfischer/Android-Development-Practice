@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+Author: Alex La
+Student Id: n01313354
+Section: RNA
+-->
 <androidx.appcompat.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,7 +12,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/la_home_backgroundColor"
-    tools:context=".LaHome">
+    tools:context=".AlexHome">
 
     <FrameLayout
         android:layout_width="wrap_content"

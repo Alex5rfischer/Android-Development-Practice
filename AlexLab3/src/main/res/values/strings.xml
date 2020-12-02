@@ -1,4 +1,9 @@
 <resources>
+<!--
+Author: Alex La
+Student Id: n01313354
+Section: RNA
+-->
     <string name="app_name">AlexLab3</string>
     <string name="are_you_sure_you_want_to_exit">Are you sure you want to exit?</string>
     <string name="no">No</string>

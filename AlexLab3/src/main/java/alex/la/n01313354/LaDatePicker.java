@@ -11,7 +11,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.util.Calendar;
-
+//Author: Alex La
+//Student Id: n01313354
+//Section: RNA
 public class LaDatePicker extends AppCompatActivity {
     private DatePicker datePicker;
 

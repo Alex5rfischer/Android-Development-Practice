@@ -21,8 +21,10 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import static android.content.Context.MODE_PRIVATE;
-
-public class LaSet extends Fragment {
+//Author: Alex La
+//Student Id: n01313354
+//Section: RNA
+public class AlexSet extends Fragment {
     private Button saveBtn;
     private Switch mySwitch;
     private RadioButton radio_brown;

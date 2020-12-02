@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+Author: Alex La
+Student Id: n01313354
+Section: RNA
+-->
 <resources>
     <style name="AlexLab3" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">#29B6F6</item>

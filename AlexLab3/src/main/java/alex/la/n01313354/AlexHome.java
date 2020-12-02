@@ -15,8 +15,10 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-public class LaHome extends Fragment {
+//Author: Alex La
+//Student Id: n01313354
+//Section: RNA
+public class AlexHome extends Fragment {
 
     Button date;
     //DatePicker View

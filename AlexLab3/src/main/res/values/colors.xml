@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+Author: Alex La
+Student Id: n01313354
+Section: RNA
+-->
 <resources>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
@@ -9,5 +14,6 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="lightgreen">#90EE90</color>
-    <color name="la_home_backgroundColor">#EFE2E2</color>
+    <color name="la_home_backgroundColor">#90EE90</color>
+    <color name="la_sms_color">#FFC300</color>
 </resources>

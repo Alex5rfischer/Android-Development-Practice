@@ -2,10 +2,8 @@ package alex.la.n01313354;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -15,9 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -28,7 +24,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
-
 //Author: Alex La
 //Student Id: n01313354
 //Section: RNA
@@ -49,7 +44,7 @@ public class AlexActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alex_activity);
 
-        LaHome homeFragment =  new LaHome();
+        AlexHome homeFragment =  new AlexHome();
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.alexcontent_frame, homeFragment).commit();
 
@@ -72,7 +67,7 @@ public class AlexActivity extends AppCompatActivity {
                 int id = menuItem.getItemId();
                 if(id == R.id.alexFirstname)
                 {
-                    newFragment = new LaSrv();
+                    newFragment = new AlexSrv();
                     transaction.replace(R.id.alexcontent_frame, newFragment);
                     transaction.addToBackStack(null);
                     transaction.commit();
@@ -85,7 +80,7 @@ public class AlexActivity extends AppCompatActivity {
 //                }else
 
                 if(id == R.id.alexSettings) {
-                    newFragment =  new LaSet();
+                    newFragment =  new AlexSet();
                     transaction.replace(R.id.alexcontent_frame, newFragment);
                     transaction.addToBackStack(null);
                     transaction.commit();

@@ -26,7 +26,9 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
-
+//Author: Alex La
+//Student Id: n01313354
+//Section: RNA
 public class LaSMS extends AppCompatActivity {
     Button btnSendSMS;
     EditText txtPhoneNo;

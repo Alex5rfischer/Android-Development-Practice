@@ -19,8 +19,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-public class LaSrv extends Fragment {
+//Author: Alex La
+//Student Id: n01313354
+//Section: RNA
+public class AlexSrv extends Fragment {
     URL ImageUrl = null;
     InputStream is = null;
     Bitmap bmImg = null;
