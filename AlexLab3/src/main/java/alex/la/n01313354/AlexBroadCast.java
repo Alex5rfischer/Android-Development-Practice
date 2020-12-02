@@ -35,21 +35,6 @@ public class AlexBroadCast extends BroadcastReceiver {
 
     double mLatitude = 43.7289;
     double mLongitude = 79.6074;
-    //
-    public void sendBroadcast(Intent intent)
-    {
-        Log.d("Here:", "Here");
-        listing6_15();
-    }
-
-    private void listing6_15() {
-        Intent intent = new Intent(AlexBroadCast.NEW_LIFEFORM_ACTION);
-        intent.putExtra(AlexBroadCast.EXTRA_LIFEFORM_NAME, detectedLifeform);
-        intent.putExtra(AlexBroadCast.EXTRA_LATITUDE, mLatitude);
-        intent.putExtra(AlexBroadCast.EXTRA_LONGITUDE, mLongitude);
-
-        sendBroadcast(intent);
-    }
 
 
     @Override
