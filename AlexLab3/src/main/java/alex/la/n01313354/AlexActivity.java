@@ -83,7 +83,7 @@ public class AlexActivity extends AppCompatActivity {
 //                }else
 
                     if(id == R.id.alexSettings) {
-                    newFragment =  new LaSettings();
+                    newFragment =  new LaSet();
                     transaction.replace(R.id.alexcontent_frame, newFragment);
                     transaction.addToBackStack(null);
                     transaction.commit();
