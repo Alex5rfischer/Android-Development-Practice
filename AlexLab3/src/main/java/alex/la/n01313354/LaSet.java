@@ -97,7 +97,6 @@ public class LaSet extends Fragment {
         });
         loadData();
         updateViews();
-
         return view;
     }
 

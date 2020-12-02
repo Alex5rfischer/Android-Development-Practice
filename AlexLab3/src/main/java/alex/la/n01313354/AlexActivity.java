@@ -37,6 +37,9 @@ public class AlexActivity extends AppCompatActivity {
     Dialog myDialog;
     Button alexNoButton,alexYesButton;
 
+    Button buttonSMS;
+
+    private static final int SMS_RECEIVE_PERMISSION_REQUEST = 1;
 
     private DrawerLayout myDrawerLayout;
     private int SMS_PERMISSION_CODE = 1;
@@ -82,7 +85,7 @@ public class AlexActivity extends AppCompatActivity {
 //                    transaction.commit();
 //                }else
 
-                    if(id == R.id.alexSettings) {
+                if(id == R.id.alexSettings) {
                     newFragment =  new LaSet();
                     transaction.replace(R.id.alexcontent_frame, newFragment);
                     transaction.addToBackStack(null);
@@ -148,13 +151,21 @@ public class AlexActivity extends AppCompatActivity {
                 break;
             case R.id.alexsms:
                 //Toast.makeText(this, "You selected the sms button", Toast.LENGTH_SHORT).show();
-                if(ContextCompat.checkSelfPermission(AlexActivity.this,
-                        Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED)
-                {
-                    Toast.makeText(AlexActivity.this,"Permission Enabled", Toast.LENGTH_SHORT).show();
-                }else{
-                    requestSMSPermission();
-                }
+//                if(ContextCompat.checkSelfPermission(AlexActivity.this,
+//                        Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED)
+//                {
+                ActivityCompat.requestPermissions(this, new String[]
+                                {Manifest.permission.RECEIVE_SMS,Manifest.permission.SEND_SMS,
+                                        Manifest.permission.SEND_SMS,
+                                        Manifest.permission.READ_PHONE_STATE},
+                        SMS_RECEIVE_PERMISSION_REQUEST);
+                    Intent intent1 = new Intent(AlexActivity.this, LaSMS.class);
+                    startActivity(intent1);
+//                }else{
+//                    requestSMSPermission();
+//                }break;
+                break;
+
             case android.R.id.home:
                 myDrawerLayout.openDrawer(GravityCompat.START);
                 return true;
