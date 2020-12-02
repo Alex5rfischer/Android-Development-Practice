@@ -42,7 +42,6 @@ public class AlexActivity extends AppCompatActivity {
     private static final int SMS_RECEIVE_PERMISSION_REQUEST = 1;
 
     private DrawerLayout myDrawerLayout;
-    private int SMS_PERMISSION_CODE = 1;
 
 
     @Override
@@ -99,33 +98,6 @@ public class AlexActivity extends AppCompatActivity {
 
     }
 
-    private void requestSMSPermission(){
-        if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS))
-        {
-
-            new AlertDialog.Builder(this)
-                    .setTitle(R.string.Information)
-                    .setMessage(R.string.permission_required)
-                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                            ActivityCompat.requestPermissions(AlexActivity.this, new String[] {Manifest.permission.SEND_SMS}, SMS_PERMISSION_CODE);
-                        }
-                    })
-                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                        }
-                    })
-                    .create().show();
-        }
-        else {
-
-            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.SEND_SMS}, SMS_PERMISSION_CODE);
-        }
-    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the tools bar if it is present.

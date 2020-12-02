@@ -1,10 +1,15 @@
 package alex.la.n01313354;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import android.Manifest;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -20,6 +25,7 @@ public class LaSMS extends AppCompatActivity {
     Button btnSendSMS;
     EditText txtPhoneNo;
     EditText txtMessage;
+    private int SMS_PERMISSION_CODE = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +53,34 @@ public class LaSMS extends AppCompatActivity {
         });
 
 
+    }
+
+    private void requestSMSPermission(){
+        if(ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS))
+        {
+
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.Information)
+                    .setMessage(R.string.permission_required)
+                    .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            ActivityCompat.requestPermissions(LaSMS.this, new String[] {Manifest.permission.SEND_SMS}, SMS_PERMISSION_CODE);
+                        }
+                    })
+                    .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    .create().show();
+        }
+        else {
+
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.SEND_SMS}, SMS_PERMISSION_CODE);
+        }
     }
 
     protected void sendSMS(String phoneNo, String message) {
