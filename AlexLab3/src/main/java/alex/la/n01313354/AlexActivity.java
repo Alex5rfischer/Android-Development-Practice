@@ -68,8 +68,14 @@ public class AlexActivity extends AppCompatActivity {
 
                 menuItem.setChecked(true);
                 myDrawerLayout.closeDrawers();
-
                 int id = menuItem.getItemId();
+                if(id == R.id.alexHome)
+                {
+                    newFragment = new AlexHome();
+                    transaction.replace(R.id.alexcontent_frame, newFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
                 if(id == R.id.alexFirstname)
                 {
                     newFragment = new AlexSrv();
